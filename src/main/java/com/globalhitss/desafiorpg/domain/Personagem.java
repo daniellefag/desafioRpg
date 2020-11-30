@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 /**
  * @author daniellefag
@@ -27,43 +29,41 @@ public class Personagem implements Serializable {
 	private Integer id;
 	private String descricao;
 	private Integer pontosVida;
-	
-	//arma
-	private Integer ataqueArma;
-	private Integer defesaArma;
-	
-	//personagem
 	private Integer forcaPersonagem;
 	private Integer agilidadePersonagem;
 	
-	//dados
-	private Integer facesDado;
+	@OneToOne
+	@JoinColumn 
+	private TiposArmas arma;
+
+
+	
+
 	
 	public Personagem() {
 		
 	}
 
+
+	
+
 	/**
 	 * @param id
 	 * @param descricao
 	 * @param pontosVida
-	 * @param ataqueArma
-	 * @param defesaArma
 	 * @param forcaPersonagem
 	 * @param agilidadePersonagem
-	 * @param facesDado
+	 * @param arma
 	 */
-	public Personagem(Integer id, String descricao, Integer pontosVida, Integer ataqueArma, Integer defesaArma,
-			Integer forcaPersonagem, Integer agilidadePersonagem, Integer facesDado) {
+	public Personagem(Integer id, String descricao, Integer pontosVida, Integer forcaPersonagem,
+			Integer agilidadePersonagem, TiposArmas arma) {
 		super();
 		this.id = id;
 		this.descricao = descricao;
 		this.pontosVida = pontosVida;
-		this.ataqueArma = ataqueArma;
-		this.defesaArma = defesaArma;
 		this.forcaPersonagem = forcaPersonagem;
 		this.agilidadePersonagem = agilidadePersonagem;
-		this.facesDado = facesDado;
+		this.arma = arma;
 	}
 
 	public Integer getId() {
@@ -90,21 +90,6 @@ public class Personagem implements Serializable {
 		this.pontosVida = pontosVida;
 	}
 
-	public Integer getAtaqueArma() {
-		return ataqueArma;
-	}
-
-	public void setAtaqueArma(Integer ataqueArma) {
-		this.ataqueArma = ataqueArma;
-	}
-
-	public Integer getDefesaArma() {
-		return defesaArma;
-	}
-
-	public void setDefesaArma(Integer defesaArma) {
-		this.defesaArma = defesaArma;
-	}
 
 	public Integer getForcaPersonagem() {
 		return forcaPersonagem;
@@ -122,12 +107,15 @@ public class Personagem implements Serializable {
 		this.agilidadePersonagem = agilidadePersonagem;
 	}
 
-	public Integer getFacesDado() {
-		return facesDado;
+
+	
+
+	public TiposArmas getArma() {
+		return arma;
 	}
 
-	public void setFacesDado(Integer facesDado) {
-		this.facesDado = facesDado;
+	public void setArma(TiposArmas arma) {
+		this.arma = arma;
 	}
 
 	@Override
