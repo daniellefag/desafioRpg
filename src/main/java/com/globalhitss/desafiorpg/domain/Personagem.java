@@ -33,15 +33,10 @@ public class Personagem implements Serializable {
 	@JoinColumn 
 	private TiposArmas arma;
 
-
-	
-
-	
 	public Personagem() {
-		
+
 	}
-
-
+	
 	
 
 	/**
@@ -62,6 +57,8 @@ public class Personagem implements Serializable {
 		this.agilidadePersonagem = agilidadePersonagem;
 		this.arma = arma;
 	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -87,7 +84,6 @@ public class Personagem implements Serializable {
 		this.pontosVida = pontosVida;
 	}
 
-
 	public Integer getForcaPersonagem() {
 		return forcaPersonagem;
 	}
@@ -104,9 +100,6 @@ public class Personagem implements Serializable {
 		this.agilidadePersonagem = agilidadePersonagem;
 	}
 
-
-	
-
 	public TiposArmas getArma() {
 		return arma;
 	}
@@ -115,13 +108,8 @@ public class Personagem implements Serializable {
 		this.arma = arma;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -132,10 +120,35 @@ public class Personagem implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Personagem other = (Personagem) obj;
+		if (agilidadePersonagem == null) {
+			if (other.agilidadePersonagem != null)
+				return false;
+		} else if (!agilidadePersonagem.equals(other.agilidadePersonagem))
+			return false;
+		if (arma == null) {
+			if (other.arma != null)
+				return false;
+		} else if (!arma.equals(other.arma))
+			return false;
+		if (descricao == null) {
+			if (other.descricao != null)
+				return false;
+		} else if (!descricao.equals(other.descricao))
+			return false;
+		if (forcaPersonagem == null) {
+			if (other.forcaPersonagem != null)
+				return false;
+		} else if (!forcaPersonagem.equals(other.forcaPersonagem))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
+			return false;
+		if (pontosVida == null) {
+			if (other.pontosVida != null)
+				return false;
+		} else if (!pontosVida.equals(other.pontosVida))
 			return false;
 		return true;
 	}

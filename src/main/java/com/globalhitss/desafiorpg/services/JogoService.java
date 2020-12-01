@@ -78,8 +78,22 @@ public class JogoService {
 
 	}
 	
-	public Integer calcularDano(Integer idpersonagem1, Integer idpersonagem2) {
-//		Optional<Personagem> p1 = repository.findById(id);
-		return 0;
+	public Personagem calcularDano(Integer personagemAtaque, Integer personagemDefesa) {
+		Personagem ataque = personagemService.buscar(personagemAtaque);
+		Personagem defesa = personagemService.buscar(personagemDefesa);
+
+		int totalPontosVidaAtaque = ataque.getPontosVida();
+		int totalPontosVidaDefesa = 0;
+
+//		if (totalPontosVidaDefesa = defesa.getPontosVida() > 0) {
+//			int ataqueJog01 = ataque.getForcaPersonagem() + Dado.jogarDado(ataque.getArma().getFacesDado());
+//			int valorAtaqueJog01 = ataqueJog01 - totalPontosVidaAtaque;
+//		}
+
+
+		int ataqueJog02 = defesa.getForcaPersonagem() + Dado.jogarDado(defesa.getArma().getFacesDado());
+		int valorAtaqueJog02 = ataqueJog02 - totalPontosVidaDefesa;
+
+		return null;
 	}
 }
