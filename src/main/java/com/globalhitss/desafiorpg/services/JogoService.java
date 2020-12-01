@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.globalhitss.desafiorpg.domain.Dado;
 import com.globalhitss.desafiorpg.domain.Personagem;
-import com.globalhitss.desafiorpg.repositories.JogoRepository;
+
 
 
 
@@ -22,36 +22,59 @@ import com.globalhitss.desafiorpg.repositories.JogoRepository;
 @Service
 public class JogoService {
 	
-	@Autowired
-	private JogoRepository repository;
+
 	
-	public String iniciarJogo(Personagem jogador1, Personagem jogador2, Dado dado) {
-        Integer resultadoJogador1 = jogador1.getAgilidadePersonagem() + dado.getNumero();
-        Integer resultadoJogador2 = jogador2.getAgilidadePersonagem() + dado.getNumero();
-        
-        if(resultadoJogador1 == resultadoJogador2) {
-        	return "Empate! Rolar o dado novamente.";
-        } else if (resultadoJogador1 > resultadoJogador2) {
-        	return "Jogador 1 inicia o jogo!";
-        }else {
-        	return "Jogador 2 inicia o jogo!";
-        }
-  
+	@Autowired
+	private PersonagemService personagemService;
+	
+	public Personagem calcularIniciativa(Integer personagem01, Integer personagem02) {
+
+		Personagem jogador01 = personagemService.buscar(personagem01);
+		Personagem jogador02 = personagemService.buscar(personagem02);
+
+		Personagem personagemComIniciativa = null;
+
+		int resultadoJogador1 = 0;
+		int resultadoJogador2 = 0;
+
+		while (resultadoJogador1 == resultadoJogador2) {
+			resultadoJogador1 = jogador01.getAgilidadePersonagem() + Dado.jogarDado(20);
+			resultadoJogador2 = jogador02.getAgilidadePersonagem() + Dado.jogarDado(20);
+
+			if (resultadoJogador1 > resultadoJogador2) {
+				personagemComIniciativa = jogador01;
+			} else if (resultadoJogador2 > resultadoJogador1) {
+				personagemComIniciativa = jogador02;
+			}
+		}
+
+		return personagemComIniciativa;
 	}
 
-	public String atacarAdversario(Personagem personagemAtaque, Personagem
-			personagemDefesa, Dado dado) {
-        Integer ataque = personagemAtaque.getAgilidadePersonagem() + personagemAtaque.getArma().getAtaqueArma() + dado.getNumero();
-        Integer defesa = personagemDefesa.getAgilidadePersonagem() + personagemAtaque.getArma().getDefesaArma() +  dado.getNumero();
-        
-        if(ataque == defesa) {
-        	return "Empate!";
-        } else if(ataque > defesa) {
-        	return "Personagem ataque venceu!";
-        } else {
-        	return "Personagem defesa venceu!";
-        }
-        		
+	public Personagem realizarAtaque(Integer personagemAtaque, Integer personagemDefesa) {
+
+		Personagem jogador01 = personagemService.buscar(personagemAtaque);
+		Personagem jogador02 = personagemService.buscar(personagemDefesa);
+
+		Personagem vencedor = null;
+
+		int resultadoAtaque = 0;
+		int resultadoDefesa = 0;
+
+		while (resultadoAtaque == resultadoDefesa) {
+			resultadoAtaque = jogador01.getAgilidadePersonagem() + jogador01.getArma().getAtaqueArma()
+					+ Dado.jogarDado(20);
+			resultadoDefesa = jogador02.getAgilidadePersonagem() + jogador02.getArma().getAtaqueArma()
+					+ Dado.jogarDado(20);
+
+			if (resultadoAtaque > resultadoDefesa) {
+				vencedor = jogador01;
+			} else if (resultadoDefesa > resultadoAtaque) {
+				vencedor = jogador02;
+
+			}
+		}
+		return vencedor;
 
 	}
 	

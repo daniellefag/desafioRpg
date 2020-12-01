@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.globalhitss.desafiorpg.domain;
 
 import java.io.Serializable;

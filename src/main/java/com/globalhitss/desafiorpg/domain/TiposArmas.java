@@ -30,7 +30,7 @@ public class TiposArmas implements Serializable {
 	private Integer ataqueArma;
 	private Integer defesaArma;
 	
-    private Dado facesDado;
+    private Integer facesDado;
 	
 	public TiposArmas() {
 		
@@ -43,7 +43,7 @@ public class TiposArmas implements Serializable {
 	 * @param defesaArma
 	 * @param facesDado
 	 */
-	public TiposArmas(Integer id, String descricao, Integer ataqueArma, Integer defesaArma, Dado facesDado) {
+	public TiposArmas(Integer id, String descricao, Integer ataqueArma, Integer defesaArma, Integer facesDado) {
 		super();
 		this.id = id;
 		this.descricao = descricao;
@@ -84,15 +84,13 @@ public class TiposArmas implements Serializable {
 		this.defesaArma = defesaArma;
 	}
 
-	public Dado getFacesDado() {
+	public Integer getFacesDado() {
 		return facesDado;
 	}
 
-	public void setFacesDado(Dado facesDado) {
+	public void setFacesDado(Integer facesDado) {
 		this.facesDado = facesDado;
 	}
-
-
 
 	@Override
 	public int hashCode() {

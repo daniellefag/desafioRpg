@@ -21,7 +21,7 @@ import com.globalhitss.desafiorpg.services.PersonagemService;
  *
  */
 @RestController
-@RequestMapping(value="/personagens")
+@RequestMapping(value="/personagem")
 public class PersonagemResources {
 	
 	@Autowired

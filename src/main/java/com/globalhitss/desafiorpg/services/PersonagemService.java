@@ -25,11 +25,11 @@ public class PersonagemService {
 	private PersonagemRepository repository;
 	
 	public Personagem buscar(Integer id) {
-		Optional<Personagem> perso = repository.findById(id);
-		if(perso == null) {
-			throw new ObjectNotFoundException("Registro não encontrado! Id: " + id + ", Tipo: " + Personagem.class.getName());
+		Optional<Personagem> personagem = repository.findById(id);
+		if(!personagem.isPresent()) {
+			throw new ObjectNotFoundException("Personagem não encontrado! Id: " + id + ", Tipo: " + Personagem.class.getName());
 		}
-		return perso.orElse(null);
+		return personagem.orElse(null);
 	}
 
 }
