@@ -29,7 +29,7 @@ public class JogoResources {
 
 	}
 	
-	@RequestMapping(name = "/realizarAtaque")
+	@RequestMapping(value = "/realizarAtaque")
 	public Personagem realizarAtaque(@RequestParam Integer personagemAtaque, @RequestParam Integer personagemDefesa) {
 
 		Personagem personagem = jogoservice.realizarAtaque(personagemAtaque, personagemDefesa);
@@ -38,11 +38,11 @@ public class JogoResources {
 	}
 
 	
-//	@RequestMapping(name = "/calcularDano")
-//	public Personagem calcularDano(@RequestParam Integer personagemAtaque, @RequestParam Integer personagemDefesa) {
-//
-//		Personagem personagemSofreuDano = jogoservice.calcularDano(personagemAtaque, personagemDefesa);
-//        return personagemSofreuDano; 
-//	}
-//	
+	@RequestMapping(value = "/calcularDano")
+	public Personagem calcularDano(@RequestParam Integer personagemAtaque, @RequestParam Integer personagemDefesa) {
+
+		Personagem personagemSofreuDano = jogoservice.calcularDano(personagemAtaque, personagemDefesa);
+        return personagemSofreuDano; 
+	}
+	
 }
