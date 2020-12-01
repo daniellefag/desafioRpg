@@ -38,11 +38,11 @@ public class JogoResources {
 	}
 
 	
-	@RequestMapping(name = "/calcularDano")
-	public Personagem calcularDano(@RequestParam Integer personagemAtaque, @RequestParam Integer personagemDefesa) {
-
-		Personagem personagemSofreuDano = jogoservice.calcularDano(personagemAtaque, personagemDefesa);
-        return personagemSofreuDano; 
-	}
-	
+//	@RequestMapping(name = "/calcularDano")
+//	public Personagem calcularDano(@RequestParam Integer personagemAtaque, @RequestParam Integer personagemDefesa) {
+//
+//		Personagem personagemSofreuDano = jogoservice.calcularDano(personagemAtaque, personagemDefesa);
+//        return personagemSofreuDano; 
+//	}
+//	
 }
