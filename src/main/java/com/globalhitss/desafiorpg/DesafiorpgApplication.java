@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 import com.globalhitss.desafiorpg.domain.Personagem;
-import com.globalhitss.desafiorpg.domain.TiposArmas;
+import com.globalhitss.desafiorpg.domain.TipoArma;
 import com.globalhitss.desafiorpg.repositories.PersonagemRepository;
 import com.globalhitss.desafiorpg.repositories.TipoArmasRepository;
 
@@ -29,8 +29,8 @@ public class DesafiorpgApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		TiposArmas ta1 = new TiposArmas(null, "Espada Longa", 2, 1, 6);
-		TiposArmas ta2 = new TiposArmas(null, "Clava de Madeira", 1, 0, 8);
+		TipoArma ta1 = new TipoArma(null, "Espada Longa", 2, 1, 6);
+		TipoArma ta2 = new TipoArma(null, "Clava de Madeira", 1, 0, 8);
 
 		Personagem p1 = new Personagem(null, "Humano", 12, 1, 2, ta1);
 		Personagem p2 = new Personagem(null, "Orc", 20, 2, 0, ta2);

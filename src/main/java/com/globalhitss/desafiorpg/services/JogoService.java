@@ -1,9 +1,4 @@
-/**
- * 
- */
 package com.globalhitss.desafiorpg.services;
-
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,21 +7,16 @@ import org.springframework.stereotype.Service;
 import com.globalhitss.desafiorpg.domain.Dado;
 import com.globalhitss.desafiorpg.domain.Personagem;
 
-
-
-
 /**
- * @author daniellefag
+ * @author daniellefag 
  * camada de acesso a serviços
  */
 @Service
 public class JogoService {
-	
 
-	
 	@Autowired
 	private PersonagemService personagemService;
-	
+
 	public Personagem calcularIniciativa(Integer personagem01, Integer personagem02) {
 
 		Personagem jogador01 = personagemService.buscar(personagem01);
@@ -62,10 +52,8 @@ public class JogoService {
 		int resultadoDefesa = 0;
 
 		while (resultadoAtaque == resultadoDefesa) {
-			resultadoAtaque = jogador01.getAgilidadePersonagem() + jogador01.getArma().getAtaqueArma()
-					+ Dado.jogarDado(20);
-			resultadoDefesa = jogador02.getAgilidadePersonagem() + jogador02.getArma().getAtaqueArma()
-					+ Dado.jogarDado(20);
+			resultadoAtaque = jogador01.getAgilidadePersonagem() + jogador01.getArma().getAtaqueArma() + Dado.jogarDado(20);
+			resultadoDefesa = jogador02.getAgilidadePersonagem() + jogador02.getArma().getAtaqueArma() + Dado.jogarDado(20);
 
 			if (resultadoAtaque > resultadoDefesa) {
 				vencedor = jogador01;
@@ -77,23 +65,18 @@ public class JogoService {
 		return vencedor;
 
 	}
-	
-	public Personagem calcularDano(Integer personagemAtaque, Integer personagemDefesa) {
-		Personagem ataque = personagemService.buscar(personagemAtaque);
-		Personagem defesa = personagemService.buscar(personagemDefesa);
 
-		int totalPontosVidaAtaque = ataque.getPontosVida();
-		int totalPontosVidaDefesa = 0;
+	public Personagem calcularDano(Integer idPersonagemAtaque, Integer idPersonagemDefesa) {
 
-//		if (totalPontosVidaDefesa = defesa.getPontosVida() > 0) {
-//			int ataqueJog01 = ataque.getForcaPersonagem() + Dado.jogarDado(ataque.getArma().getFacesDado());
-//			int valorAtaqueJog01 = ataqueJog01 - totalPontosVidaAtaque;
-//		}
+		Personagem personagemAtaque = personagemService.buscar(idPersonagemAtaque);
+		Personagem personagemDefesa = personagemService.buscar(idPersonagemDefesa);
 
+		// Realizar ataque
+		int danoCausado = personagemAtaque.getForcaPersonagem() + Dado.jogarDado(personagemAtaque.getArma().getFacesDado());
+		int pontosVidaAtualizado = personagemDefesa.getPontosVida() - danoCausado;
+		personagemDefesa.setPontosVida(pontosVidaAtualizado);
+		personagemService.atualizarPersonagem(personagemDefesa);
 
-		int ataqueJog02 = defesa.getForcaPersonagem() + Dado.jogarDado(defesa.getArma().getFacesDado());
-		int valorAtaqueJog02 = ataqueJog02 - totalPontosVidaDefesa;
-
-		return null;
+		return personagemDefesa;
 	}
 }

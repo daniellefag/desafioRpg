@@ -1,8 +1,5 @@
 package com.globalhitss.desafiorpg.resources;
 
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,18 +15,17 @@ import com.globalhitss.desafiorpg.services.PersonagemService;
  *
  */
 @RestController
-@RequestMapping(value="/personagem")
+@RequestMapping(value = "/personagem")
 public class PersonagemResources {
-	
+
 	@Autowired
 	private PersonagemService service;
 
-	@RequestMapping(value="/{id}",  method=RequestMethod.GET)
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> listarPersonagem(@PathVariable Integer id) {
-		
+
 		Personagem obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
-		
 
 	}
 }

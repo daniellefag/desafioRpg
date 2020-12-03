@@ -13,6 +13,7 @@ public class StandardError implements Serializable {
 	private Integer status;
 	private String msg;
 	private long timeStamp;
+
 	/**
 	 * @param status
 	 * @param msg
@@ -24,25 +25,29 @@ public class StandardError implements Serializable {
 		this.msg = msg;
 		this.timeStamp = timeStamp;
 	}
+
 	public Integer getStatus() {
 		return status;
 	}
+
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
+
 	public String getMsg() {
 		return msg;
 	}
+
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
+
 	public long getTimeStamp() {
 		return timeStamp;
 	}
+
 	public void setTimeStamp(long timeStamp) {
 		this.timeStamp = timeStamp;
 	}
-	
-	
 
 }

@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+
+import com.fasterxml.jackson.annotation.JsonGetter;
+
 /**
  * @author daniellefag
  *
@@ -31,7 +34,7 @@ public class Personagem implements Serializable {
 	
 	@OneToOne
 	@JoinColumn 
-	private TiposArmas arma;
+	private TipoArma arma;
 
 	public Personagem() {
 
@@ -48,7 +51,7 @@ public class Personagem implements Serializable {
 	 * @param arma
 	 */
 	public Personagem(Integer id, String descricao, Integer pontosVida, Integer forcaPersonagem,
-			Integer agilidadePersonagem, TiposArmas arma) {
+			Integer agilidadePersonagem, TipoArma arma) {
 		super();
 		this.id = id;
 		this.descricao = descricao;
@@ -100,60 +103,21 @@ public class Personagem implements Serializable {
 		this.agilidadePersonagem = agilidadePersonagem;
 	}
 
-	public TiposArmas getArma() {
+	public TipoArma getArma() {
 		return arma;
 	}
 
-	public void setArma(TiposArmas arma) {
+	public void setArma(TipoArma arma) {
 		this.arma = arma;
 	}
 
+	@JsonGetter
+	public String getStatus() {
+		if(pontosVida <= 0) {
+			return "derrotado";
+		}
 
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Personagem other = (Personagem) obj;
-		if (agilidadePersonagem == null) {
-			if (other.agilidadePersonagem != null)
-				return false;
-		} else if (!agilidadePersonagem.equals(other.agilidadePersonagem))
-			return false;
-		if (arma == null) {
-			if (other.arma != null)
-				return false;
-		} else if (!arma.equals(other.arma))
-			return false;
-		if (descricao == null) {
-			if (other.descricao != null)
-				return false;
-		} else if (!descricao.equals(other.descricao))
-			return false;
-		if (forcaPersonagem == null) {
-			if (other.forcaPersonagem != null)
-				return false;
-		} else if (!forcaPersonagem.equals(other.forcaPersonagem))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (pontosVida == null) {
-			if (other.pontosVida != null)
-				return false;
-		} else if (!pontosVida.equals(other.pontosVida))
-			return false;
-		return true;
+		return "em combate";
 	}
-	
-	
-	
 
 }
