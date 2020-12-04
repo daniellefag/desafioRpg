@@ -14,7 +14,7 @@ porta padrão definida como 8080
 
 .Teste serviço no postman:
 
--buscar personagem
+#-buscar personagem
 
 GET /personagem/idPersonagem
 
