@@ -1,6 +1,7 @@
 
 package com.globalhitss.desafiorpg.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,10 @@ import com.globalhitss.desafiorpg.repositories.PersonagemRepository;
 import com.globalhitss.desafiorpg.services.exceptions.ObjectNotFoundException;
 
 /**
- * @author daniellefag camada de acesso a serviços
+ * @author daniellefag 
+ * camada de acesso a serviços
  */
+
 @Service
 public class PersonagemService {
 
@@ -34,5 +37,10 @@ public class PersonagemService {
 		return repository.save(personagem);
 
 	}
+	
+
+   public List <Personagem> findList(){
+	   return repository.findAll();
+   }
 
 }
