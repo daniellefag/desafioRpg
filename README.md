@@ -14,17 +14,22 @@ porta padrão definida como 8080
 
 .Teste serviço no postman:
 
--buscar personagem
+*buscar personagem
+
 GET /personagem/idPersonagem
 
--listar personagens
+*listar personagens
+
 GET /personagem/listarpersonagens
 
 -calcular iniciativa de jogo
+
 GET /jogo/calcularIniciativa?personagem01=?&personagem02=?
 
 -Realizar ataque
+
 GET /jogo/realizarAtaque?personagemAtaque=?&personagemDefesa=?
 
 -CalcularDano
+
 GET /jogo/calcularDano?personagemAtaque=?&personagemDefesa=?
