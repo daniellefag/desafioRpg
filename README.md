@@ -2,19 +2,22 @@
 
 > Repositório criado para inclusão do projeto
 
-``` bash
-Banco de dados: mysql
 
-Executar o script: create DATABASE jogo_rpg
+### Banco de dados: 
+mysql
 
-Caso o banco local possua senha, alterar o arquivo application.properties
+#### Executar o script: 
+create DATABASE jogo_rpg
+
+#### Observações:
+1. Se o banco de dados possuir senha, alterar o arquivo application.properties
 password=****
 
-Caso precise alterar a porta para execução, alterar o application.properties
+2. Alterar porta para execução do projeto, alterar o application.properties
 porta padrão definida como 8080
-```
 
-#### Teste serviço no postman:
+
+### Teste serviço no postman:
 
 **_Buscar personagem:_**
 
