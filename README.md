@@ -12,24 +12,24 @@ Caso precise alterar a porta para execução, alterar o application.properties
 porta padrão definida como 8080
 
 
-.Teste serviço no postman:
+######Teste serviço no postman:
 
-**_Buscar personagem_**
+**_Buscar personagem:_**
 
 GET /personagem/idPersonagem
 
-**_Listar personagens_**
+**_Listar personagens:_**
 
 GET /personagem/listarpersonagens
 
-**_Calcular iniciativa de jogo_**
+**_Calcular iniciativa de jogo:_**
 
 GET /jogo/calcularIniciativa?personagem01=?&personagem02=?
 
-**_Realizar ataque_**
+**_Realizar ataque:_**
 
 GET /jogo/realizarAtaque?personagemAtaque=?&personagemDefesa=?
 
-**_CalcularDano_**
+**_CalcularDano:_**
 
 GET /jogo/calcularDano?personagemAtaque=?&personagemDefesa=?
