@@ -12,6 +12,7 @@ password=****
 
 Caso precise alterar a porta para execução, alterar o application.properties
 porta padrão definida como 8080
+```
 
 #### Teste serviço no postman:
 
@@ -34,4 +35,4 @@ GET /jogo/realizarAtaque?personagemAtaque=?&personagemDefesa=?
 **_CalcularDano:_**
 
 GET /jogo/calcularDano?personagemAtaque=?&personagemDefesa=?
-```
+
