@@ -11,8 +11,7 @@ password=****
 Caso precise alterar a porta para execução, alterar o application.properties
 porta padrão definida como 8080
 
-
-######Teste serviço no postman:
+#### Teste serviço no postman:
 
 **_Buscar personagem:_**
 
