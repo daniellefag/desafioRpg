@@ -1,6 +1,8 @@
 # desafioRpg
-Repositório criado para inclusão do projeto
 
+> Repositório criado para inclusão do projeto
+
+``` bash
 Banco de dados: mysql
 
 Executar o script: create DATABASE jogo_rpg
@@ -32,3 +34,4 @@ GET /jogo/realizarAtaque?personagemAtaque=?&personagemDefesa=?
 **_CalcularDano:_**
 
 GET /jogo/calcularDano?personagemAtaque=?&personagemDefesa=?
+```
